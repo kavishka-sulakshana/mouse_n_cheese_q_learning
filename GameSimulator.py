@@ -3,7 +3,7 @@ import sys
 
 
 class GameSimulator:
-    def __init__(self, window_size=500, grid_size=5, start_position=[0, 0], target_position=[4, 4], animal_image="example3/images/mouse.png", cheese_image="example3/images/cheese.png", caption="Grid with Animal") -> None:
+    def __init__(self, window_size=500, grid_size=5, start_position=[0, 0], target_position=[4, 4], animal_image="images/mouse.png", cheese_image="images/cheese.png", caption="Grid with Animal") -> None:
         self.window_size = window_size
         self.grid_size = grid_size
         self.cell_size = window_size // grid_size

@@ -102,7 +102,7 @@ for episode in range(num_episodes):
     print("Episode:", episode, "Epsilon:", epsilon, "state:", state)
     time.sleep(0.05)
 
-with open('example3/q_table.json', 'w') as json_file:
+with open('q_table.json', 'w') as json_file:
     json.dump(q_table.tolist(), json_file)
 
 print("Q-table saved to q_table.json")

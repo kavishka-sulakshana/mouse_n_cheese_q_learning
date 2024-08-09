@@ -5,7 +5,7 @@ import time
 import pygame
 
 # Retrieve the list from the JSON file
-with open('example3/q_table.json', 'r') as json_file:
+with open('q_table.json', 'r') as json_file:
     loaded_list = json.load(json_file)
 
 loaded_array = np.array(loaded_list)

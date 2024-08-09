@@ -26,7 +26,7 @@ gamma = 0.99  # Discount factor
 epsilon = 1.0  # Initial exploration rate
 epsilon_decay = 0.995
 epsilon_min = 0.01
-num_episodes = 500
+num_episodes = 1000
 
 
 def do_action(action):
@@ -50,6 +50,7 @@ def plot_q_table(q_table):
     fig, ax = plt.subplots(figsize=(10, 10))
     sns.heatmap(np.max(q_table, axis=2), annot=True, cmap='YlGnBu', ax=ax)
     ax.set_title('Maximum Q-value for each state')
+    plt.savefig('q_table.png', format='png', dpi=300, bbox_inches='tight')
     plt.show()
 
 
@@ -59,6 +60,7 @@ def plot_policy(q_table):
     sns.heatmap(np.zeros(grid_size), cbar=False,
                 annot=policy, fmt='d', cmap='coolwarm', ax=ax)
     ax.set_title('Optimal policy (0=up, 1=right, 2=down, 3=left)')
+    plt.savefig('policy_table.png', format='png', dpi=300, bbox_inches='tight')
     plt.show()
 
 
@@ -66,8 +68,9 @@ def plot_policy(q_table):
 state = tuple(simulator.reset_game())
 for episode in range(num_episodes):
     done = False
-
+    count = 0
     while not done:
+        count = count + 1
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
@@ -99,7 +102,7 @@ for episode in range(num_episodes):
     state = (0, 0)
     simulator.reset_game()
     simulator.draw_game()
-    print("Episode:", episode, "Epsilon:", epsilon, "state:", state)
+    print("Episode:", episode, "Epsilon:", epsilon, "Count:", count)
     time.sleep(0.05)
 
 with open('q_table.json', 'w') as json_file:

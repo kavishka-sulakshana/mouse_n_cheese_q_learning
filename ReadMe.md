@@ -1,4 +1,5 @@
 # The mouse & the cheese
+![Capture2](https://github.com/user-attachments/assets/f9174f45-efdd-451d-aeb5-42199601443e)
 
 ### Install the requirements.txt
 
